@@ -1,0 +1,7 @@
+resources
+| where type =~ 'microsoft.network/networkinterfaces'
+| project id, ipConfigurations = properties.ipConfigurations
+| mvexpand ipConfigurations
+| project id, subnetId = tostring(ipConfigurations.properties.subnet.id)
+| parse kind=regex subnetId with '/virtualNetworks/' virtualNetwork '/subnets/' subnet
+| project id, virtualNetwork, subnet
