@@ -1,0 +1,10 @@
+// Show all virtual machines disks ordered by name & Subscription in descending order.
+// The query uses 'order by' to sort the properties by the 'name' property in descending (desc) order. You can change what property to sort by and the order ('asc' or 'desc')
+// The '=~' in the 'type' match tells Resource Graph to be case insensitive
+//
+// Click the "Run query" command above to execute the query and see results.
+
+resources
+| project diskName=name, diskSizeGB=properties.diskSizeGB, diskSKU=sku.name, encryptionType=properties.encryption.type, diskState=properties.diskState, name, SubscriptionName=name, location, type, managedBy, resourceGroup
+| where type =~ 'Microsoft.Compute/disks'
+| order by name desc
