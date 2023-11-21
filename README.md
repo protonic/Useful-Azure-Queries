@@ -25,4 +25,6 @@ You will see an option to download yur output in CSV.
 ![image](https://github.com/protonic/Useful-Azure-Queries/assets/6954075/f338c0bf-6013-43af-a959-13a3cde72a59)
 
 
+Once CSV file is downloaded, you can open it and save ad Excel file.
+
 
