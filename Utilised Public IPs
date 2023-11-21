@@ -1,0 +1,11 @@
+// List all public IP addresses
+// Lists all Azure resources that have the word 'publicIPAddresses' in the type.
+//
+// Uses 'limit' to limit the results to the top 100. You can change '100' to another number, or remove it to show the whole list.
+// Uses 'isnotempty()' to limit the results to the top 100. You can change '100' to another number, or remove it to show the whole list.
+//
+// Click the "Run query" command above to execute the query and see results.
+
+resources
+| where type contains 'publicIPAddresses' and isnotempty(properties.ipAddress)
+| summarize count () by subscriptionId
