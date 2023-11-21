@@ -1,0 +1,12 @@
+// Show all virtual machines ordered by name
+// Returns all virtual machines ordered by name in descending order.
+//
+// The query uses 'order by' to sort the properties by the 'name' property in descending (desc) order. You can change what property to sort by and the order ('asc' or 'desc')
+// The '=~' in the 'type' match tells Resource Graph to be case insensitive
+//
+// Click the "Run query" command above to execute the query and see results.
+
+resources
+| project name, location, type, managedBy
+| where type =~ 'Microsoft.Compute/virtualMachines'
+| order by name desc
